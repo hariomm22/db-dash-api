@@ -10,7 +10,8 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      student.belongsToMany(models.clients, { through: 'client_database_mapping', foreignKey: 'databaseId' })
+      client_database.belongsToMany(models.clients, { through: 'client_database_mapping', foreignKey: 'databaseId' })
+      client_database.hasMany(models.database_tables, { foreignKey: 'id' });
     }
   }
   client_database.init({
