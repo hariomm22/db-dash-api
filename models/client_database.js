@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       client_database.belongsToMany(models.clients, { through: 'client_database_mapping', foreignKey: 'databaseId' })
-      client_database.hasMany(models.database_tables, { foreignKey: 'id' });
+      client_database.hasMany(models.database_tables, { foreignKey: 'dbId' });
     }
   }
   client_database.init({
